@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        “汇签单”效果演示
+    </title>
+    <!--PageOffice.js一定要引用-->
+    <script type="text/javascript" src="~/PageOffice/pageoffice.js"></script>
+    <script type="text/javascript">
+
+        function refreshDemo() {
+            if (confirm("确认复位吗？")) {
+                location.href = "Refresh.aspx";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" action="" method="post">
+        <div style="width:900px; height:50px; margin:50px auto;text-align:center;">
+            <h1>“汇签单”效果演示</h1>
+        </div>
+        <div style="width:900px; height:100px; margin:50px auto;text-align:left;">
+
+            <div style=" font-size:14px;"><span style=" color:Red;">演示：</span>不同的用户登录后，在文档中不同区域可以输入意见和盖章。（印章用户名：用户姓名，密码：123456）</div>
+            <div style=" font-size:14px;"><span style=" color:Red;">提示：</span>点此“<a href="javascript:refreshDemo();">全部复位</a>”连接，即可重新演示汇签效果；点击<a href="pageoffice/login.aspx" target="_blank">电子印章简易管理平台</a> 可添加、删除印章。管理员:admin 密码:111111</div>
+        </div>
+
+        <div style="  margin:20px auto; border:solid 1px blue; width:900px; height:200px; text-align:center;">
+
+            <div style="font-size:14px;margin-top:40px">汇签流程模拟：点击下面的用户，直接登录并打开汇签单</div>
+
+            <div style="margin:40px 50px; font-size:14px;">
+                <a href="javascript:POBrowser.openWindowModeless('HuiQian?id=1&user=zhangsan','width=1100px;height=960px;');">主管副经理：张三</a>(汇签) <img style="margin:0 30px;" src="images/right_16.png" />
+                <a href="javascript:POBrowser.openWindowModeless('HuiQian?id=1&user=lisi','width=1100px;height=960px;');">项目经理：李四</a>(汇签) <img style="margin:0 30px;" src="images/right_16.png" />
+                <a href="javascript:POBrowser.openWindowModeless('HuiQian?id=1&user=wangwu','width=1100px;height=960px;');">总经理：王五</a>(汇签、打开合同盖公司章)
+
+            </div>
+
+        </div>
+    </form>
+</body>
+
+</html>
+
+

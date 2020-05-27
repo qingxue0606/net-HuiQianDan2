@@ -1,0 +1,356 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+
+<html>
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <meta name=Generator content="Microsoft Word 14 (filtered)">
+    <title>项目采购会签单</title>
+    <style>
+    </style>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txt_@Html.Raw(ViewBag.user)").removeAttr("readonly");
+            $("#txt_@Html.Raw(ViewBag.user)").css("color", "black");
+        });
+        function SaveAndClose() {
+            document.getElementById("HtmlSignCtrl1").SaveSeal();
+            $("#form1").submit();
+        }
+        function AddSeal(user) {
+            if ("zhangsan" == user) {
+                document.getElementById("HtmlSignCtrl1").SignedFields = "txt_zhangsan;"; //需要保护的页面元素的id集合，用分号隔开
+                document.getElementById("HtmlSignCtrl1").Anchor = "AnchorElement1";
+                document.getElementById("HtmlSignCtrl1").ProtectRangeColor = "#FFFF00";
+                document.getElementById("HtmlSignCtrl1").EnableLogin = true;
+                document.getElementById("HtmlSignCtrl1").AddSeal(500, 260, true);
+            }
+            else if ("lisi" == user) {
+                document.getElementById("HtmlSignCtrl1").SignedFields = "txt_zhangsan;txt_lisi;"; //需要保护的页面元素的id集合，用分号隔开
+                document.getElementById("HtmlSignCtrl1").Anchor = "AnchorElement1";
+                document.getElementById("HtmlSignCtrl1").ProtectRangeColor = "#FFFF00";
+                document.getElementById("HtmlSignCtrl1").EnableLogin = true;
+                document.getElementById("HtmlSignCtrl1").AddSeal(500, 160, true);
+            }
+            else if ("wangwu" == user) {
+                document.getElementById("HtmlSignCtrl1").SignedFields = "txt_zhangsan;txt_lisi;txt_wangwu;"; //需要保护的页面元素的id集合，用分号隔开
+                document.getElementById("HtmlSignCtrl1").Anchor = "AnchorElement1";
+                document.getElementById("HtmlSignCtrl1").ProtectRangeColor = "#FFFF00";
+                document.getElementById("HtmlSignCtrl1").EnableLogin = true;
+                document.getElementById("HtmlSignCtrl1").AddSeal(500, 60, true);
+            }
+        }
+    </script>
+</head>
+
+<body lang=ZH-CN link="#261CDC" vlink=purple style='text-justify-trim:punctuation'>
+
+    <div style="width:680px;  margin:0 auto;">
+
+        <div class=WordSection1 style='layout-grid:15.6pt'>
+
+            <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+            <p class=MsoNormal align=center style='text-align:center'>
+                <b>
+                    <span style='font-size:16.0pt;font-family:黑体'>项目采购汇签单</span>
+                </b>
+            </p>
+
+            <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US>&nbsp;</span></p>
+            <div style="margin:8px 0;">
+                <span style="display:inline-block;  ">
+                    <img src="images/delete_16.png" />
+                    <a href="javascript:window.external.close();">关闭</a>
+                </span>
+                <span style="display:inline-block; width:510px;">
+                    当前用户：<%=userName%>
+                    <span style="margin-left:50px; color:red;font-size:12px;">
+                        <input type="button" value="保存关闭" onclick="SaveAndClose()" />
+                        <input type="button" value="盖章" onclick="AddSeal('<%=user%>')" /> 提示：印章密码123456
+                    </span>
+                </span>
+                <span style="display:inline-block;  ">
+                    <img src="images/word.gif" />
+                    <a href="/HuiQian/Word?user=@Html.Raw(ViewBag.user)">合同正文</a>
+                </span>
+            </div>
+            <form id="form1" action="save.jsp?id=<%=id%>" method="post">
+                <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=591
+                       style='width:680px;margin:0px auto;border-collapse:collapse;border:none'>
+                    <tr style='height:1.0cm'>
+                        <td width=147 colspan=2 style='width:110.15pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal style='text-indent:26.25pt'>
+                                <span style='font-family:宋体'>要</span><span lang=EN-US>&nbsp; </span><span style='font-family:宋体'>素</span>
+                            </p>
+                        </td>
+                        <td width=444 colspan=7 style='width:332.75pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>约</span><span lang=EN-US>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span><span style='font-family:宋体'>定</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='height:1.0cm'>
+                        <td width=147 colspan=2 style='width:110.15pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>物资名称</span></p>
+                        </td>
+                        <td width=444 colspan=7 style='width:332.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>钢材采购合同</span></p>
+                        </td>
+                    </tr>
+
+                    <tr style='height:1.0cm'>
+                        <td width=147 colspan=2 style='width:110.15pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>供货商</span></p>
+                        </td>
+                        <td width=444 colspan=7 style='width:332.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>唐山某某钢铁集团</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:1.0cm'>
+                        <td width=147 colspan=2 style='width:110.15pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>合同单价</span></p>
+                        </td>
+                        <td width=138 style='width:103.85pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>见合同</span></p>
+                        </td>
+                        <td width=63 style='width:47.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>数量</span>
+                            </p>
+                        </td>
+                        <td width=83 colspan=2 style='width:62.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>见合同</span></p>
+                        </td>
+                        <td width=62 colspan=2 style='width:46.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>合同总</span>
+                            </p>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>金</span><span lang=EN-US>&nbsp; </span><span style='font-family:宋体'>额</span>
+                            </p>
+                        </td>
+                        <td width=97 style='width:72.9pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>￥<span lang=EN-US>260000.00</span></span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:1.0cm'>
+                        <td width=147 colspan=2 style='width:110.15pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>运输方式</span></p>
+                        </td>
+                        <td width=138 style='width:103.85pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>汽车运输</span></p>
+                        </td>
+                        <td width=63 style='width:47.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>运费</span>
+                            </p>
+                        </td>
+                        <td width=83 colspan=2 style='width:62.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>供方</span></p>
+                        </td>
+                        <td width=62 colspan=2 style='width:46.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>运费承</span>
+                            </p>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>担</span><span lang=EN-US>&nbsp; </span><span style='font-family:宋体'>方</span>
+                            </p>
+                        </td>
+                        <td width=97 style='width:72.9pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>供方</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:1.0cm'>
+                        <td width=147 colspan=2 style='width:110.15pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>交货地点</span></p>
+                        </td>
+                        <td width=201 colspan=2 style='width:151.1pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal><span style='font-family:宋体'>北京市朝阳区某某仓库</span></p>
+                        </td>
+                        <td width=83 colspan=2 style='width:62.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>交货日期</span>
+                            </p>
+                        </td>
+                        <td width=159 colspan=3 style='width:119.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+                            <p class=MsoNormal>
+                                <span lang=EN-US>2018</span><span style='font-family:宋体'>年</span><span lang=EN-US>05</span><span style='font-family:宋体'>月</span><span lang=EN-US>10</span><span style='font-family:宋体'>日前</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='height:32.05pt'>
+                        <td width=147 colspan=2 style='width:110.15pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:32.05pt'>
+                            <p class=MsoNormal><span style='font-family:宋体'>付款方式</span></p>
+                        </td>
+                        <td width=444 colspan=7 style='width:332.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:32.05pt'>
+                            <p class=MsoNormal>
+                                <span style='font-family:宋体'>按合同要求支付</span><span lang=EN-US>.</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='height:29.55pt'>
+                        <td width=147 colspan=2 style='width:110.15pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:29.55pt'>
+                            <p class=MsoNormal><span style='font-family:宋体'>验收方式</span></p>
+                        </td>
+                        <td width=444 colspan=7 style='width:332.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:29.55pt'>
+                            <p class=MsoNormal><span style='font-family:宋体'>按国家有关规定验收。</span></p>
+                        </td>
+                    </tr>
+
+                    <tr style='height:32.35pt'>
+                        <td width=591 colspan=9 style='width:442.9pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:32.35pt'>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>汇</span><span lang=EN-US>&nbsp;&nbsp;&nbsp; </span><span style='font-family:宋体'>签</span><span lang=EN-US>&nbsp;&nbsp;&nbsp; </span><span style='font-family:宋体'>栏</span>
+                            </p>
+                            <div id="AnchorElement1"></div>
+                        </td>
+                    </tr>
+                    <tr style='height:29.1pt'>
+                        <td width=120 style='width:90.0pt;border:solid windowtext 1.0pt;border-top:
+  none;padding:0cm 5.4pt 0cm 5.4pt;height:29.1pt'>
+                            <p class=MsoNormal>
+                                <span style='font-family:宋体'>部</span><span lang=EN-US>
+                                    &nbsp;
+                                </span><span style='font-family:宋体'>门</span>
+                            </p>
+                        </td>
+                        <td width=471 colspan=8 style='width:352.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:29.1pt'>
+                            <p class=MsoNormal align=center style='text-align:center'>
+                                <span style='font-family:宋体'>意</span><span lang=EN-US>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span><span style='font-family:宋体'>见</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='height:75.75pt'>
+                        <td width=120 style='width:90.0pt;border:solid windowtext 1.0pt;border-top:
+  none;padding:0cm 5.4pt 0cm 5.4pt;height:75.75pt'>
+                            <p class=MsoNormal><span style='font-family:宋体'>总经理(王五)</span></p>
+                        </td>
+                        <td width=471 colspan=8 style='width:352.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:75.75pt'>
+                            <Textarea id="txt_wangwu" name="txt_wangwu" placeholder="（王五的印章保护所有人的内容）" class=inputcss readonly="readonly" style="border:0;width:100%;height:100%"><%if (null != advice_wangwu) { out.print(advice_wangwu);}%></Textarea>
+                        </td>
+                    </tr>
+                    <tr style='height:77.45pt'>
+                        <td width=120 style='width:90.0pt;border:solid windowtext 1.0pt;border-top:
+  none;padding:0cm 5.4pt 0cm 5.4pt;height:77.45pt'>
+                            <p class=MsoNormal><span style='font-family:宋体'>项目经理(李四)</span></p>
+                        </td>
+                        <td width=471 colspan=8 style='width:352.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:77.45pt'>
+                            <Textarea id="txt_lisi" name="txt_lisi" placeholder="（李四的印章同时保护张三、李四两人的内容）" class=inputcss readonly="readonly" style="border:0;width:100%;height:100%"><%if (null != advice_lisi) { out.print(advice_lisi);}%></Textarea>
+                        </td>
+                    </tr>
+                    <tr style='height:77.95pt'>
+                        <td width=120 style='width:90.0pt;border:solid windowtext 1.0pt;border-top:
+  none;padding:0cm 5.4pt 0cm 5.4pt;height:77.95pt'>
+                            <p class=MsoNormal><span style='font-family:宋体'>主管副经理(张三)</span></p>
+                        </td>
+                        <td width=471 colspan=8 style='width:352.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:77.95pt'>
+                            <Textarea id="txt_zhangsan" name="txt_zhangsan" placeholder="（张三的印章只保护此区域的内容）" class=inputcss readonly="readonly" style="border:0; width:100%;height:100%"><%if (null != advice_zhangsan) { out.print(advice_zhangsan);}%></Textarea>
+                        </td>
+                    </tr>
+                    <tr style='height:35.25pt'>
+                        <td width=120 style='width:90.0pt;border:solid windowtext 1.0pt;border-top:
+  none;padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+                            <p class=MsoNormal><span style='font-family:宋体'>更改内容</span></p>
+                        </td>
+                        <td width=300 colspan=4 style='width:225.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+                            <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+                        </td>
+                        <td width=63 colspan=2 style='width:47.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+                            <p class=MsoNormal><span style='font-family:宋体'>经办人</span></p>
+                        </td>
+                        <td width=107 colspan=2 style='width:80.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+                            <p class=MsoNormal><span style='font-family:宋体'>任某某</span></p>
+                        </td>
+                    </tr>
+                    <tr height=0>
+                        <td width=120 style='border:none'></td>
+                        <td width=27 style='border:none'></td>
+                        <td width=138 style='border:none'></td>
+                        <td width=63 style='border:none'></td>
+                        <td width=72 style='border:none'></td>
+                        <td width=11 style='border:none'></td>
+                        <td width=52 style='border:none'></td>
+                        <td width=10 style='border:none'></td>
+                        <td width=97 style='border:none'></td>
+                    </tr>
+                </table>
+                @Html.Raw(ViewBag.htCtrl)
+            </form>
+            <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

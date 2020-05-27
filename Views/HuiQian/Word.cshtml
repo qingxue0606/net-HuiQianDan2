@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title></title>
+    <link href="/images/csstg.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form2" runat="server">
+        <div id="content">
+            <div id="textcontent" style="width: 1000px; height: 780px;">
+                <div class="flow4" style="font-size:14px;">
+                    <a href="javascript:history.back();">
+                        <img alt="返回" src="images/return.gif"
+                             border="0" />返回
+                    </a>
+                    <strong>当前用户：</strong>
+                    <span style="color: Red;">@Html.Raw(ViewBag.userName)</span>
+                    <strong>印章密码：</strong>
+                    <span style="color: red;">123456</span>
+                </div>
+
+                <script type="text/javascript">
+
+                    //保存
+                    function Save() {
+                        document.getElementById("PageOfficeCtrl1").WebSave();
+                    }
+                    //盖章
+                    function AddSeal() {
+                        document.getElementById("PageOfficeCtrl1").DataRegionList.GetDataRegionByName("PO_Seal1").Locate();
+                        document.getElementById("PageOfficeCtrl1").ZoomSeal.AddSeal();
+                    }
+
+                    function GoBack() {
+                        history.back();
+                    }
+
+
+                </script>
+
+                <!--**************   卓正 PageOffice组件 ************************-->
+                @Html.Raw(ViewBag.POCtrl)
+            </div>
+        </div>
+        <div id="footer">
+            <hr width="1000" />
+            <div>
+                Copyright (c) 2018 北京卓正志远软件有限公司
+            </div>
+        </div>
+    </form>
+</body>
+</html>
